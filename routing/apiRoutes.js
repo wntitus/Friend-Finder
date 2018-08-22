@@ -1,12 +1,16 @@
-module.exports = function(app, friends) {
+let friendData = require('../app/data/friends');
+
+module.exports = function(app) {
     app.get('/api/friends', function(req, res) {
-        res.json(friends);
+        res.json(friendData);
     })
 
     app.post('/api/friends', function(req, res) {
         let newFriend = req.body;
 
+        friendData.push(newFriend);
+
         console.log(newFriend);
-        res.json(newFriend);
+        res.json(true);
     })
 }
