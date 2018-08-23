@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 
 // creating our express app and then using bodyparser middleware for JSON handling
 const app = express();
-app.use(bodyParser.urlencoded({ extended: true}));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 // requiring our external routes files
