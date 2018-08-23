@@ -12,29 +12,41 @@ module.exports = function(app) {
 
     app.post('/api/friends', function(req, res) {
         
+        // storing the request body in a newFriend variable for easy access
         let newFriend = req.body;
+
+        // creating empty strings to store the match's name and photo after we find it
         let friendMatchName = '';
         let friendMatchPhoto = '';
 
+        // pulling out the user's number choices and storing in a variable for easy access
         let userScores = newFriend.scores;
 
+        // important - creating an initial total difference that is large so that we have somewhere to store the current lowest difference in our logic, which we can then compare to a temporary difference and if the temp one is lower, than store that in total difference instead
         let totalDifference = 999;
-    
+        
+
+        // looping through our friend data array located in friends.js
         for (i = 0; i < friendData.length; i++) {
+            // creating our variable to hold the temporary difference for each friend vs the user
             let tempDiff = 0;
+            // looping through the user's scores and then subtracting the user's score from each matching friend score in their respective arrays, then storing it in our temporary difference variable
             for (o = 0; o < userScores.length; o++) {
                 tempDiff += Math.abs(parseInt(friendData[i].scores[o]) - parseInt(userScores[o]))
             }
-    
+            
+            // comparison of our temporary difference and total difference, if the temporary difference is lower than the total difference it becomes the new total difference, until the lowest total difference is found 
             if (tempDiff < totalDifference) {
                 totalDifference = tempDiff;
                 friendMatchName = friendData[i].name;
                 friendMatchPhoto = friendData[i].photo;
             }
         }
-    
+        
+        // adding the user to the friend data
         friendData.push(newFriend);
 
+        // sending a response object that has the match's name and match's photo
         res.json({name: friendMatchName, photo: friendMatchPhoto});
         
     })
