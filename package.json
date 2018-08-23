@@ -1,0 +1,32 @@
+{
+  "name": "friendfinder",
+  "version": "1.0.0",
+  "description": "Friend Finding app using a survey to 'match' with friends",
+  "main": "server.js",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "chai": "^4.1.2",
+    "express": "^4.16.3"
+  },
+  "devDependencies": {
+    "mocha": "^5.2.0"
+  },
+  "scripts": {
+    "test": "mocha",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wntitus/Friend-Finder.git"
+  },
+  "keywords": [
+    "friend",
+    "survey"
+  ],
+  "author": "wntitus",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wntitus/Friend-Finder/issues"
+  },
+  "homepage": "https://github.com/wntitus/Friend-Finder#readme"
+}
