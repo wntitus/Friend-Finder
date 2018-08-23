@@ -134,5 +134,50 @@
             </div>
         </div>
     </div>
+    <div class = "modal fade" id = "resultsModal" tabindex = "-1" role = "dialog">
+        <div class = "modal-dialog modal-dialog-centered" role = "document">
+            <div class = "modal-content">
+                <div class = "modal-header">
+                    <h4 class = "modal-title" id = "modalTitle">Results</h4>
+                    <button type = "button" class = "close" data-dismiss = "modal">
+                        <span>&times;</span>
+                    </button>
+                </div>
+                <div class = "modal-body">
+                    TEST
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type = "text/javascript">
+
+    $('#submitBtn').on("click", function(event) {
+        event.preventDefault();
+
+        $("#resultsModal").modal('toggle');
+
+        let user = {
+            name : $('#inputName').val(),
+            photo : $('#inputImg').val(),
+            scores : [
+                $('#questionOneSelect').val(),
+                $('#questionTwoSelect').val(),
+                $('#questionThreeSelect').val(),
+                $('#questionFourSelect').val(),
+                $('#questionFiveSelect').val(),
+                $('#questionSixSelect').val(),
+                $('#questionSevenSelect').val(),
+                $('#questionEightSelect').val(),
+                $('#questionNineSelect').val(),
+                $('#questionTenSelect').val()
+            ]
+        }
+
+        $.post('/api/friends', user, function(data) {
+            console.log(data);
+        })
+    });
+
+    </script>
 </body>
 </html>

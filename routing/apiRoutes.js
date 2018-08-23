@@ -9,11 +9,13 @@ module.exports = function(app) {
     })
 
     app.post('/api/friends', function(req, res) {
+        
+
         let newFriend = req.body;
 
         friendData.push(newFriend);
 
-        console.log(newFriend);
+
         res.json(true);
     })
 }
