@@ -145,7 +145,7 @@
                 </div>
                 <div class = "modal-body">
                     <h3 id = "matchName"></h3>
-                    <img id = "matchImg">
+                    <img id = "matchImg" height = "340" width = "330">
                 </div>
             </div>
         </div>
@@ -176,10 +176,15 @@
 
         $.post('/api/friends', user, function(data) {
             console.log(data);
-            $('#matchName').html(data.name);
+            $('#matchName').html("Your best match is: " + data.name);
             $('#matchImg').attr('src', data.photo);
+            
         })
     });
+
+    $('.close').on("click", function() {
+        window.location.replace('/');
+    })
 
     </script>
 </body>
