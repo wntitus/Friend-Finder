@@ -29,7 +29,7 @@ module.exports = function(app) {
             if (tempDiff < totalDifference) {
                 totalDifference = tempDiff;
                 friendMatchName = friendData[i].name;
-                friendMatchPhoto = friendData[i].name;
+                friendMatchPhoto = friendData[i].photo;
             }
         }
     

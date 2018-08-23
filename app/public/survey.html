@@ -144,9 +144,8 @@
                     </button>
                 </div>
                 <div class = "modal-body">
-                    <div class = "resultsBody">
-
-                    </div>
+                    <h3 id = "matchName"></h3>
+                    <img id = "matchImg">
                 </div>
             </div>
         </div>
@@ -177,6 +176,8 @@
 
         $.post('/api/friends', user, function(data) {
             console.log(data);
+            $('#matchName').html(data.name);
+            $('#matchImg').attr('src', data.photo);
         })
     });
 
